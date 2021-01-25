@@ -38,3 +38,33 @@ def word_split(phrase,list_of_words, output = None):
             return word_split(phrase[len(word):], list_of_words, output)
 
     return output
+
+"""
+Reverse a String using Recursion
+"""
+
+def reverse(s):
+    if len(s) <= 1:
+        return s
+
+    return reverse(s[1:]) + s[0]
+
+"""
+String Permutation
+"""
+
+def permute(s):
+
+    out = []
+    # Base Case
+    if len(s) <= 1:
+        out = [s]
+    # Recursive Case
+    else:
+        for i, let in enumerate(s):
+            for perm in permute( s[:i] + s[i+1:] ):
+                out += [let + perm]
+    return out
+
+
+
